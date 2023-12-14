@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@drawable/splash"
+    tools:context=".views.SplashActivity">
+
+    <com.ncorti.slidetoact.SlideToActView
+        android:id="@+id/slideToActView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_12sdp"
+        app:animation_duration="250"
+        app:area_margin="4dp"
+        app:border_radius="@dimen/_40sdp"
+        app:bounce_on_start="true"
+        app:bump_vibration="50"
+        app:inner_color="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:outer_color="#4D000000"
+        app:slider_locked="false"
+        app:text="Let's go"
+        app:text_color="@color/white"
+        app:text_size="@dimen/_17ssp"
+        app:text_style="bold" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
