@@ -54,6 +54,10 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.44")
     kapt("com.google.dagger:hilt-android-compiler:2.44")
     implementation("androidx.activity:activity-ktx:1.8.1")
+    implementation("androidx.fragment:fragment-ktx:1.6.2")
+
+    implementation("androidx.navigation:navigation-compose:2.5.3")
+
 
     //  retrofit
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")

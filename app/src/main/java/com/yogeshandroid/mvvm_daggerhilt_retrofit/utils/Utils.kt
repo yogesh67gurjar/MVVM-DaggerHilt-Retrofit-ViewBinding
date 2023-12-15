@@ -18,13 +18,13 @@ class Utils {
                     CommonErrorResponse::class.java
                 )
                 if (responseCode == 400) {
-                    message = commonErrorResponse.message
+                    message = commonErrorResponse.status_message
                 } else if (responseCode == 401) {
-                    message = commonErrorResponse.message
+                    message = commonErrorResponse.status_message
                 } else if (responseCode == 500) {
-                    message = commonErrorResponse.message
+                    message = commonErrorResponse.status_message
                 } else if (responseCode == 404) {
-                    message = commonErrorResponse.message
+                    message = commonErrorResponse.status_message
                 }
             } catch (e: IOException) {
                 e.printStackTrace()

@@ -5,18 +5,20 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
+import com.yogeshandroid.mvvm_daggerhilt_retrofit.R
 import com.yogeshandroid.mvvm_daggerhilt_retrofit.databinding.ActivityMainBinding
 import com.yogeshandroid.mvvm_daggerhilt_retrofit.viewModel.RandomViewModel
+import com.yogeshandroid.mvvm_daggerhilt_retrofit.views.fragments.home.HomeFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
-    val randomViewModel: RandomViewModel by viewModels()
 
-
+    lateinit var ft: FragmentTransaction
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,28 +32,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun attachObservers() {
-        randomViewModel.failureString.observe(this, Observer {
-            binding.progress.visibility = View.GONE
-        })
 
-        randomViewModel.randomData.observe(this, Observer {
-            binding.progress.visibility = View.GONE
-            Glide.with(this).load(it.message).into(binding.image)
-        })
 
     }
 
     private fun clickEvents() {
-        binding.btn.setOnClickListener(View.OnClickListener {
-            ObjectAnimator.ofFloat<View>(it, View.ALPHA, 0.4f, 1.0f).setDuration(1000).start()
 
-            randomViewModel.getRandomDogImages()
-            binding.progress.visibility = View.VISIBLE
-        })
     }
 
     private fun initSetup() {
-        randomViewModel.getRandomDogImages()
-        binding.progress.visibility = View.VISIBLE
+        ft = supportFragmentManager.beginTransaction()
+        ft.replace(R.id.frame, HomeFragment()).commit()
     }
 }

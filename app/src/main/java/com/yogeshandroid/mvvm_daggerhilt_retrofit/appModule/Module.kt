@@ -15,9 +15,9 @@ import javax.inject.Singleton
 class Module {
 
     @Provides
-    @Named("baseUrl")
+    @Named("baseUrlTmdb")
     fun providesBaseUrl(): String {
-        return "https://dog.ceo/api/breeds/image/"
+        return "https://api.themoviedb.org/3/discover/"
     }
 
     @Provides
@@ -25,8 +25,9 @@ class Module {
         return retrofit.create(ApiService::class.java)
     }
 
+
     @Provides
-    fun providesRetrofitClient(@Named("baseUrl") baseUrl: String): Retrofit {
+    fun providesRetrofitClient(@Named("baseUrlTmdb") baseUrl: String): Retrofit {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
